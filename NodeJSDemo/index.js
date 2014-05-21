@@ -1,7 +1,8 @@
 ﻿var express = require( 'express' );
 var mysql = require( 'mysql' );
 
-var connection = mysql.createConnection( {
+var pool = mysql.createPool( {
+    connectionLimit: 10,
     host: '115.28.205.176',
     user: 'root',
     password: 'Pass@word1'
@@ -9,15 +10,22 @@ var connection = mysql.createConnection( {
 
 var app = express();
 
+app.get( '/', function ( req, res ) {
+    res.send( "please choose controller to get data! like/hotword" );
+});
+
 app.get( '/hotword', function ( req, res ) {
-    connection.connect();
-    connection.query( 'SELECT * from digital_marketing.r_brand_hotword', function ( err, rows, fields ) {
-        if ( err ) {
-            throw err;
-        }
-        debugger;
-        return res.send(rows);
+    pool.getConnection( function ( err, connection ) {
+        connection.query( 'SELECT * from digital_marketing.r_brand_hotword', function ( err, rows, fields ) {
+            if ( err ) {
+                throw err;
+            }
+            debugger;
+            connection.release();
+            return res.send( rows );
+        });
     });
+    //connection.end();
 });
 
 function GethotWord() {
