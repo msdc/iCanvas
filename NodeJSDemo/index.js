@@ -4,8 +4,8 @@ var mysql = require( 'mysql' );
 var pool = mysql.createPool( {
     connectionLimit: 10,
     host: '115.28.205.176',
-    user: 'root',
-    password: 'Pass@word1'
+    user: 'xxxx',
+    password: 'xxxxxx'
 });
 
 var app = express();
