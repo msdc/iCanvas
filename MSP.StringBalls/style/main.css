@@ -1,0 +1,17 @@
+﻿svg {
+    background-color: lightgray;
+}
+
+textarea {
+    width: 600px;
+    height: 594px;
+    float:left;
+}
+
+
+#container {
+    width:800px;
+    overflow:hidden;
+    float:left;
+    cursor:pointer;
+}

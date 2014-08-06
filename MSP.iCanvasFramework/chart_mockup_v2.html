@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="css/pieChart.css" rel="stylesheet" />
+    <script src="framework/iCanvas_v1_1_1.js"></script>
+    <script src="javascript/HeartRateChart.js"></script>
+    <script src="javascript/pieChart.js"></script>
+    <script src="javascript/jquery-2.0.3.js"></script>
+    <script type="text/ecmascript">
+
+
+
+        window.onload = function () {
+
+            //var t1 = heartRateLine({
+            //    cvsId: "c1",
+            //    width: 798,
+            //    height: 143,
+            //    borderColor: "white",
+            //    axisLineColor: "red",
+            //    axisOriginLineColor: "red",
+            //    axisBgColor: "white",
+            //    lineColor: "#f48029",
+            //    pointRadius: 8,
+            //    count: 13,
+            //    axisRange: [0, 120],
+            //    axisLinePosition: [80, 100, 120]
+
+            //});
+            //t1.completed(function () {
+            //    //console.log("d");
+            //})
+            //setTimeout(function () {
+               
+            //    var _obj = new Date(),
+            //        _key = _obj.getHours() + ":" + _obj.getMinutes() + ":" + _obj.getSeconds(),
+            //       _data = Math.random() * 120
+            //    t1.addAnimateData(_key, parseInt(_data, 10));
+            //    t1.activeAnimation();
+
+            //    setTimeout(arguments.callee, 1000);
+
+            //}, 1000);
+
+        }
+
+    </script>
+    <title></title>
+</head>
+<body>
+
+    <div style="width: 1024px; height: 200px;">
+        <canvas id="c1" width="800" height="145" style="float: left">canvas not supported</canvas>
+    </div>
+    <div class="cityreport">
+        <canvas width="800" height="300" id="cvs"></canvas>
+        <section>
+            <header>
+                2013年11月04日
+            </header>
+            <table id="apidata" class="apidata">
+                <colgroup>
+                    <col />
+                </colgroup>
+
+            </table>
+
+        </section>
+    </div>
+
+    <script>
+        var data = [{ "City": "道里区", "exponent": "102", "air": "124", "water": "58", "FeiGu": "194", "noise": "141", "light": "135", "radiation": "51" },
+            { "City": "道外区", "exponent": "80", "air": "109", "water": "144", "FeiGu": "183", "noise": "136", "light": "122", "radiation": "197" },
+            { "City": "南岗区", "exponent": "53", "air": "128", "water": "159", "FeiGu": "56", "noise": "110", "light": "135", "radiation": "59" },
+            { "City": "香坊区", "exponent": "120", "air": "58", "water": "166", "FeiGu": "152", "noise": "130", "light": "90", "radiation": "180" },
+            { "City": "平房区", "exponent": "138", "air": "115", "water": "176", "FeiGu": "132", "noise": "92", "light": "120", "radiation": "99" },
+            { "City": "松北区", "exponent": "158", "air": "176", "water": "69", "FeiGu": "143", "noise": "122", "light": "94", "radiation": "140" },
+            { "City": "呼兰区", "exponent": "95", "air": "87", "water": "118", "FeiGu": "122", "noise": "111", "light": "163", "radiation": "95" },
+            { "City": "阿城区", "exponent": "114", "air": "110", "water": "124", "FeiGu": "132", "noise": "168", "light": "99", "radiation": "171" },
+            { "City": "巴彦县", "exponent": "128", "air": "97", "water": "94", "FeiGu": "71", "noise": "146", "light": "115", "radiation": "186" },
+            { "City": "宾县 ", "exponent": "78", "air": "172", "water": "97", "FeiGu": "134", "noise": "116", "light": "116", "radiation": "75" },
+            { "City": "依兰县", "exponent": "118", "air": "79", "water": "107", "FeiGu": "92", "noise": "172", "light": "108", "radiation": "185" },
+            { "City": "延寿县", "exponent": "70", "air": "58", "water": "67", "FeiGu": "182", "noise": "196", "light": "166", "radiation": "68" },
+            { "City": "木兰县", "exponent": "54", "air": "78", "water": "64", "FeiGu": "74", "noise": "199", "light": "118", "radiation": "191" },
+            { "City": "通河县", "exponent": "100", "air": "185", "water": "93", "FeiGu": "138", "noise": "115", "light": "161", "radiation": "101" },
+            { "City": "方正县", "exponent": "84", "air": "97", "water": "64", "FeiGu": "138", "noise": "192", "light": "128", "radiation": "67" },
+            { "City": "五常市", "exponent": "112", "air": "118", "water": "51", "FeiGu": "137", "noise": "97", "light": "54", "radiation": "136" },
+            { "City": "双城市", "exponent": "153", "air": "188", "water": "129", "FeiGu": "87", "noise": "102", "light": "50", "radiation": "76" },
+            { "City": "尚志市", "exponent": "88", "air": "127", "water": "192", "FeiGu": "187", "noise": "64", "light": "96", "radiation": "109" }];
+
+        var data1 = [
+        { "City": "通河县", "exponent": "100", "air": "185", "water": "93", "FeiGu": "138", "noise": "115", "light": "161", "radiation": "101" },
+            { "City": "方正县", "exponent": "84", "air": "97", "water": "64", "FeiGu": "138", "noise": "192", "light": "128", "radiation": "67" },
+            { "City": "五常市", "exponent": "112", "air": "118", "water": "51", "FeiGu": "137", "noise": "97", "light": "54", "radiation": "136" },
+            { "City": "双城市", "exponent": "153", "air": "188", "water": "129", "FeiGu": "87", "noise": "102", "light": "50", "radiation": "76" },
+            { "City": "尚志市", "exponent": "88", "air": "127", "water": "192", "FeiGu": "187", "noise": "64", "light": "96", "radiation": "109" }];
+
+        //$.ajax({
+        //    url: "./GetDatahandler.h",
+        //    data: { type: "pieChart" },
+        //    type: "get",
+        //    dataType: "text",
+        //    async: false,
+        //    success: function (data) {
+        //        alert(data);
+        //        document.write(data);
+        //    }
+
+        //});
+
+        var pie = new pieChartConfig({
+            width: 800,
+            height: 300,
+            pies: [{ field: "exponent", text: "指数", sx: 140, sy: 125, radius: 95, borderColor: "white", borderWidth: 1, displayBorder: true },
+                   { field: "air", text: "空气", sx: 340, sy: 80, radius: 40 },
+                   { field: "water", text: "水", sx: 340, sy: 220, radius: 40 },
+                   { field: "FeiGu", text: "废固", sx: 500, sy: 80, radius: 40 },
+                   { field: "noise", text: "噪声", sx: 500, sy: 220, radius: 40 },
+                   { field: "light", text: "光", sx: 660, sy: 80, radius: 40 },
+                   { field: "radiation", text: "辐射", sx: 660, sy: 220, radius: 40 }],
+            legendX: 10,
+            legendY: 265,
+            legendW: 80,
+            legendH: 20
+
+        }, {
+            radius: 95,
+            borderColor: "white",
+            borderWidth: 1,
+            displayBorder: true
+        });
+        pie.defaultColors = ["#039B24", "#00B0E5", "#A4C947"];
+        pie.setData(data);
+        function buildHtml(pieLegendConfigs, func) {
+            var _table = document.getElementById("apidata"), obj = this,
+                           _createElement = document.createElement,
+                           _headerText = ["城市", "指数", "空气", "水", "废固", "噪声", "光", "辐射"],
+                           _theader = document.createElement("thead"), _tr, _th, _ths = [], _td, _tdcity, _tdexponent,
+                           _tbody = document.createElement("tbody"), _data = obj.data;
+            _tr = document.createElement("tr");
+
+            for (var i = 0, len; len = _headerText.length, i < len; i++) {
+                _th = document.createElement("th");
+                _th.innerHTML = _headerText[i];
+                _tr.appendChild(_th);
+
+            }
+            _theader.appendChild(_tr);
+            len = _data.length
+            if (len > 8) {
+                _table.parentNode.style.cssText = "overflow-y: scroll;"
+            }
+            else {
+                len = 8;
+            }
+            var _colCount = 0;
+            for (i = 0 ; i < len; i++) {
+                _tr = document.createElement("tr");
+                var _tmp = _data[i];
+                if (_tmp) {
+                    _colCount = 0;
+                    for (var _item in _tmp) {
+
+
+
+
+                        var _index = func.call(this, _tmp[_item]);
+                        _td = document.createElement("td");
+                        if (_item.toLowerCase() == "city") {
+                            _tdcity = _td;
+                        }
+                        else {
+                            _td.style.cssText = "color:" + pieLegendConfigs[_index].color;
+                        }
+                        if (_item.toLowerCase() == "exponent") {
+                            _tdexponent = _td;
+                        }
+
+                        _td.innerHTML = _tmp[_item];
+                        _td.style.csst
+                        _tr.appendChild(_td);
+                    }
+                    _tdcity.style.cssText = _tdexponent.style.cssText;
+
+                }
+                else {
+                    for (var j = 0; j < _colCount; j++) {
+                        _td = document.createElement("td");
+                        _tr.appendChild(_td);
+                    }
+                }
+                _tbody.appendChild(_tr);
+            }
+            _table.innerHTML = "";
+            _table.appendChild(_theader);
+            _table.appendChild(_tbody);
+        }
+        pie.buildHtml(buildHtml);
+        pie.registerMapToColorHandler();
+        pie.Render();
+        //var _interval = setInterval(function () {
+
+        //    if (data.length > 0) {
+        //        var newdata = data.shift();
+
+        //        data1.unshift(newdata);
+        //        pie.setData(data1);
+
+        //        pie.buildHtml(buildHtml);
+        //        pie.Render();
+        //    }
+        //    else {
+        //        clearInterval(_interval);
+        //    }
+
+        //}, 5000);
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSP.iCanvasFramework", "MSP.iCanvasFramework\MSP.iCanvasFramework.csproj", "{45F42082-DFDC-4B4F-9309-85D88547E174}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSP.GoogleChart", "MSP.GoogleChart\MSP.GoogleChart.csproj", "{1536C276-C1D4-4209-90A0-68D3F0130D8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSP.HighChart", "MSP.HighChart\MSP.HighChart.csproj", "{B0F94544-1C34-4CB8-82C0-F09F7BF8BB96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarbinDemo", "HarbinDemo\HarbinDemo.csproj", "{BD01C5E0-0EE4-4D75-822D-E202F48F84D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarbinCockpit", "HarbinCockpit\HarbinCockpit.csproj", "{408E8FBB-A625-452F-864B-9E85BA715F13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSP.StringBalls", "MSP.StringBalls\MSP.StringBalls.csproj", "{DB86DB35-1AB5-4B2B-9555-3FCABFD663B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSP.3DSample", "MSP.3DSample\MSP.3DSample.csproj", "{6064CF7E-40B3-4CD6-A8AD-A4FBFDAE6C2D}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "seajs_animate", "http://localhost:15680", "{17939DD5-9927-48DE-87A2-065EC6E9DC0C}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_15680"
+		Debug.AspNetCompiler.PhysicalPath = "seajs_animate\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_15680\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_15680"
+		Release.AspNetCompiler.PhysicalPath = "seajs_animate\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_15680\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "seajs_animate\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animate", "animate\animate.csproj", "{36DBEF18-E3AB-49B2-B4B9-CDD8EF663A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gesture", "Gesture\Gesture.csproj", "{674D511E-5116-41AB-8478-D1B39C008AC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Node_Samples", "Node_Samples\Node_Samples.csproj", "{C9D2F474-A53C-4F9C-9F94-4FDABB5C328C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "detective", "detective\detective.csproj", "{D738FB86-07AC-47EB-93F9-C668E4612485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deferred", "Deferred\Deferred.csproj", "{9A105868-AA1F-4BC9-9EBE-6BE38AE3D362}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 14
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://msp-vstf:8080/tfs/msp-of
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MSP.iCanvasFramework\\MSP.iCanvasFramework.csproj
+		SccProjectName1 = MSP.iCanvasFramework
+		SccLocalPath1 = MSP.iCanvasFramework
+		SccProjectUniqueName2 = MSP.GoogleChart\\MSP.GoogleChart.csproj
+		SccProjectName2 = MSP.GoogleChart
+		SccLocalPath2 = MSP.GoogleChart
+		SccProjectUniqueName3 = MSP.HighChart\\MSP.HighChart.csproj
+		SccProjectName3 = MSP.HighChart
+		SccLocalPath3 = MSP.HighChart
+		SccProjectUniqueName4 = HarbinDemo\\HarbinDemo.csproj
+		SccProjectName4 = HarbinDemo
+		SccLocalPath4 = HarbinDemo
+		SccProjectUniqueName5 = MSP.StringBalls\\MSP.StringBalls.csproj
+		SccProjectName5 = MSP.StringBalls
+		SccLocalPath5 = MSP.StringBalls
+		SccProjectUniqueName6 = MSP.3DSample\\MSP.3DSample.csproj
+		SccProjectName6 = MSP.3DSample
+		SccLocalPath6 = MSP.3DSample
+		SccProjectUniqueName7 = HarbinCockpit\\HarbinCockpit.csproj
+		SccProjectName7 = HarbinCockpit
+		SccLocalPath7 = HarbinCockpit
+		SccWebProject8 = true
+		SccProjectUniqueName8 = http://localhost:15680
+		SccProjectName8 = seajs_animate
+		SccLocalPath8 = seajs_animate
+		SccProjectEnlistmentChoice8 = 2
+		SccProjectUniqueName9 = animate\\animate.csproj
+		SccProjectName9 = animate
+		SccLocalPath9 = animate
+		SccProjectUniqueName10 = Gesture\\Gesture.csproj
+		SccProjectName10 = Gesture
+		SccLocalPath10 = Gesture
+		SccProjectUniqueName11 = Node_Samples\\Node_Samples.csproj
+		SccProjectName11 = Node_Samples
+		SccLocalPath11 = Node_Samples
+		SccProjectUniqueName12 = detective\\detective.csproj
+		SccProjectName12 = detective
+		SccLocalPath12 = detective
+		SccProjectUniqueName13 = Deferred\\Deferred.csproj
+		SccProjectName13 = Deferred
+		SccLocalPath13 = Deferred
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45F42082-DFDC-4B4F-9309-85D88547E174}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45F42082-DFDC-4B4F-9309-85D88547E174}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45F42082-DFDC-4B4F-9309-85D88547E174}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45F42082-DFDC-4B4F-9309-85D88547E174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1536C276-C1D4-4209-90A0-68D3F0130D8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1536C276-C1D4-4209-90A0-68D3F0130D8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1536C276-C1D4-4209-90A0-68D3F0130D8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1536C276-C1D4-4209-90A0-68D3F0130D8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0F94544-1C34-4CB8-82C0-F09F7BF8BB96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F94544-1C34-4CB8-82C0-F09F7BF8BB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F94544-1C34-4CB8-82C0-F09F7BF8BB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F94544-1C34-4CB8-82C0-F09F7BF8BB96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD01C5E0-0EE4-4D75-822D-E202F48F84D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD01C5E0-0EE4-4D75-822D-E202F48F84D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD01C5E0-0EE4-4D75-822D-E202F48F84D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD01C5E0-0EE4-4D75-822D-E202F48F84D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408E8FBB-A625-452F-864B-9E85BA715F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408E8FBB-A625-452F-864B-9E85BA715F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408E8FBB-A625-452F-864B-9E85BA715F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408E8FBB-A625-452F-864B-9E85BA715F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB86DB35-1AB5-4B2B-9555-3FCABFD663B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB86DB35-1AB5-4B2B-9555-3FCABFD663B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB86DB35-1AB5-4B2B-9555-3FCABFD663B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB86DB35-1AB5-4B2B-9555-3FCABFD663B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6064CF7E-40B3-4CD6-A8AD-A4FBFDAE6C2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6064CF7E-40B3-4CD6-A8AD-A4FBFDAE6C2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6064CF7E-40B3-4CD6-A8AD-A4FBFDAE6C2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6064CF7E-40B3-4CD6-A8AD-A4FBFDAE6C2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17939DD5-9927-48DE-87A2-065EC6E9DC0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17939DD5-9927-48DE-87A2-065EC6E9DC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17939DD5-9927-48DE-87A2-065EC6E9DC0C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{17939DD5-9927-48DE-87A2-065EC6E9DC0C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{36DBEF18-E3AB-49B2-B4B9-CDD8EF663A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36DBEF18-E3AB-49B2-B4B9-CDD8EF663A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36DBEF18-E3AB-49B2-B4B9-CDD8EF663A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36DBEF18-E3AB-49B2-B4B9-CDD8EF663A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{674D511E-5116-41AB-8478-D1B39C008AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{674D511E-5116-41AB-8478-D1B39C008AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{674D511E-5116-41AB-8478-D1B39C008AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{674D511E-5116-41AB-8478-D1B39C008AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D2F474-A53C-4F9C-9F94-4FDABB5C328C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D2F474-A53C-4F9C-9F94-4FDABB5C328C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D2F474-A53C-4F9C-9F94-4FDABB5C328C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D2F474-A53C-4F9C-9F94-4FDABB5C328C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D738FB86-07AC-47EB-93F9-C668E4612485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D738FB86-07AC-47EB-93F9-C668E4612485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D738FB86-07AC-47EB-93F9-C668E4612485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D738FB86-07AC-47EB-93F9-C668E4612485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A105868-AA1F-4BC9-9EBE-6BE38AE3D362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A105868-AA1F-4BC9-9EBE-6BE38AE3D362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A105868-AA1F-4BC9-9EBE-6BE38AE3D362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A105868-AA1F-4BC9-9EBE-6BE38AE3D362}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
