@@ -1,0 +1,14 @@
+﻿#container {
+    width: 500px;
+    height: 220px;
+    border: solid 1px black;
+    position: relative;
+    margin-left:120px;
+    background-color:rgb(83,174,207);
+    color:rgb(115,206,214);
+}
+
+    #container div {
+        background-color: yellow;
+        position: absolute;
+    }

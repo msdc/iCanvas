@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Google chart</title>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <!--<script type="text/javascript" src="~/javascript/jsapi.js"></script>-->
+        <link href="./css/googlechart.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="header">
+            <h2>
+                Google Chart
+            </h2>
+        </div>
+        <div id="categories">
+            <a href="javascript:void(0);" onclick="javascript:googleChart.drawChartPie();return false;">Pie Chart</a>
+            <a href="javascript:void(0);" onclick="javascript:googleChart.drawChartBar();return false;">Bar Chart</a>
+            <a href="javascript:void(0);" onclick="javascript:googleChart.drawChartColumn();return false;">Column Chart</a>
+            <a href="javascript:void(0);" onclick="javascript:googleChart.drawChartLine();return false;">Line Chart</a>
+        </div>
+        <div id="content">
+            <label>Change Chart:</label>
+            <select onchange="googleChart.changeChart(this.value);">
+                <option value="0">Pie Chart</option>
+                <option value="1">Bar Chart</option>
+                <option value="2">Column Chart</option>
+                <option value="3">Line Chart</option>
+            </select>
+            <div id="div_chart_pie"></div>
+            <div id="div_chart_bar"></div>
+            <div id="div_chart_column"></div>
+            <div id="div_chart_line"></div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript" src="javascript/googlechart.js"></script>

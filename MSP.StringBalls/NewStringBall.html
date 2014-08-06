@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="style/main.css" rel="stylesheet" />
+    <script src="js/utility.js"></script>
+    <script src="js/vector.js"></script>
+    <script src="js/NewStringBall.js"></script>
+    <script type="text/javascript">
+        function GetRandom(num1, num2) {
+            var _max = Math.max(num1, num2);
+            var _min = Math.min(num1, num2);
+            return parseInt(_min + (_max - _min) * Math.random());
+        }
+
+
+        function CreateDom(key, parent) {
+            var _dom = document.createElementNS('http://www.w3.org/2000/svg', key);
+            parent.appendChild(_dom);
+            return _dom
+        }
+
+        function CreateSingleCircle(parent, x, y, r) {
+            var _circle = CreateDom("circle", parent);
+            _circle.setAttribute("cx", x);
+            _circle.setAttribute("cy", y);
+            _circle.setAttribute("r", r);
+            _circle.setAttribute("fill", "rgb(" + GetRandom(0, 255) + "," + GetRandom(0, 255) + "," + GetRandom(0, 255) + ")");
+            return _circle;
+        }
+
+        function clearPicked() {
+            for (var i = 0, ci; ci = ball.prototype.global.allInstances[i]; i++) {
+                ci.picked = false;
+            }
+        }
+
+        function drawLines() {
+            var _lines = ball.prototype.global.allStrings;
+            for (var i in _lines) {
+                var _instance = _lines[i];
+                _instance.line.setAttribute("x1", _instance.a.position.x);
+                _instance.line.setAttribute("y1", _instance.a.position.y);
+                _instance.line.setAttribute("x2", _instance.b.position.x);
+                _instance.line.setAttribute("y2", _instance.b.position.y);
+                _instance.line.style.stroke = "gray";
+                _instance.line.style.strokeWidth = 1;
+            }
+        }
+
+        window.onload = function () {
+            //定义容器
+            document.getElementById("log").value = "";
+            var _svg = document.getElementById("svg");
+            var _g = CreateDom("g", _svg);
+            var _mouse = utils.captureMouse(_svg.parentNode);
+            var _picked;
+            _svg.parentNode.addEventListener("mousemove", function () {
+                if (_picked) {
+                    _picked.position.x = _mouse.x;
+                    _picked.position.y = _mouse.y;
+                    _picked.render();
+                }
+            }, false);
+
+
+            //挂事件
+            _svg.parentNode.addEventListener("mouseup", function () { clearPicked(); _picked = undefined; }, false);
+            _svg.parentNode.addEventListener("mouseout", function (e) {
+                var _evt = e || window.event;
+                if (_evt.srcElement == this) {
+                    clearPicked();
+                    _picked = undefined;
+                }
+            }, false);
+
+
+            //虚拟格子
+            //总共13个球
+            var _counter = 13;
+            var _names = ["Tom", "John", "Thomas", "Karl", "Ben", "Jessy", "Mary", "Lucy", "King", "Chris"];
+
+            var _ballR = ball.prototype.CONS.defaultR;
+            var _cellLen = _ballR * 2;
+            var _borderW = 2;
+            var _borderH = 2;
+            var _w = Math.floor(_svg.clientWidth / _cellLen);
+            var _h = Math.floor(_svg.clientHeight / _cellLen);
+
+            var _xRange = _w - 2 * _borderW;
+            var _yRange = _h - 2 * _borderH;
+            var _all = [];
+            var _map = [];
+
+            for (var i = 0; i < _xRange; i++) {
+                for (var j = 0; j < _yRange; j++) {
+                    _all.push({ x: i, y: j });
+                }
+            }
+
+            for (var i = 0; i < _counter; i++) {
+                var _index = GetRandom(0, _all.length - 1);
+                var _item = _all[_index];
+                _map.push({ x: _item.x, y: _item.y });
+                _all.splice(_index, 1);
+            }
+
+
+
+            //生成球
+            for (var i = 0, ci; ci = _map[i]; i++) {
+                var _dx = (ci.x + _borderW) * _cellLen + _ballR;
+                var _dy = (ci.y + _borderH) * _cellLen + _ballR;
+                var _ballInstance = new ball(5, _dx, _dy);
+                _ballInstance.name = _names[GetRandom(0, _names.length - 1)];
+            }
+
+
+            //生成线，建立球之间的联系
+            for (var i = 0, ci; ci = ball.prototype.global.allInstances[i]; i++) {
+                for (var j = i + 1, bi; bi = ball.prototype.global.allInstances[j]; j++) {
+                    var _flag = GetRandom(1, 4);
+                    if (_flag == 2) {
+                        ci.attachBall(bi);
+                    }
+                }
+            }
+
+            //画线
+            var _strings = ball.prototype.global.allStrings;
+            for (var i in _strings) {
+                var _instance = _strings[i];
+                _instance.line = CreateDom("line", _g);
+            }
+
+            //画球并完善事件
+            for (var i = 0, ci; ci = ball.prototype.global.allInstances[i]; i++) {
+
+                ci.onRender(function () {
+                    if (!this.dom) {
+                        this.dom = CreateSingleCircle(_g, this.position.x, -this.position.y, this.R);
+                        var _that = this;
+                        this.dom.addEventListener("mousedown", function () {
+                            _that.picked = true;
+                            _picked = _that;
+                        }, false);
+                    }
+                    this.dom.setAttribute("cx", this.position.x);
+                    this.dom.setAttribute("cy", this.position.y);
+
+                    if (!this.txt) {
+                        this.txt = CreateDom("text", _g);
+                        this.txt.addEventListener("mousedown", function () {
+                            _that.picked = true;
+                            _picked = _that;
+                        }, false);
+                    }
+                    this.txt.textContent = this.name;
+                    this.txt.setAttribute("x", this.position.x);
+                    this.txt.setAttribute("y", this.position.y);
+                    this.txt.setAttribute("font-size", 15);
+                    this.txt.setAttribute("font-family", "Segoe UI");
+                    this.txt.setAttribute("font-weight", "normal");
+                    this.txt.setAttribute("text-anchor", "middle");
+                    this.txt.setAttribute("dy", 7);
+                    this.txt.setAttribute("fill", "black");
+                });
+            }
+
+
+
+
+
+
+            /////////////////// log /////////////////////
+            var _logTxt = [];
+            _ballInstance.logEvt.attach(function (x) {
+                _logTxt.push(x);
+                var _log = document.getElementById("log");
+                _log.value = _logTxt.join("\n");
+            });
+            /////////////////// end log /////////////////////
+            var _mouseDown = false;
+            var _target = { x: 0, y: 0 };
+            //_svg.addEventListener("mousemove", function () {
+            //    _target = { x: _mouse.x - 400, y: _mouse.y - 300 }
+            //},false);                      
+
+
+            (function () {
+                for (var i = 0, ci; ci = ball.prototype.global.allInstances[i]; i++) {
+                    if (!ci.picked) {
+                        ci.springToBalls();
+                        ci.render();
+                    }
+                }
+                drawLines();
+                window.requestAnimationFrame(arguments.callee);
+            })();
+
+        }
+
+    </script>
+    <title></title>
+</head>
+<body>
+    <div id="container">
+        <svg version="1.1" height="600px" width="800px" id="svg">
+        </svg>
+    </div>
+    
+    <textarea id="log"></textarea>
+</body>
+</html>

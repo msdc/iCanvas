@@ -1,0 +1,4 @@
+/*@author Mingli Guo (guomilo@gmail.com)
+ * @Date 2014-03-12 
+ */
+define("src/tools/timer",["./util","./observer","../tools/requestAnimationFrame"],function(a){function b(){this.interval=void 0,this._handler=new d(this)}var c=a("./util"),d=a("./observer");return a("../tools/requestAnimationFrame"),b.prototype={addHandler:function(a,b){c.isUndefined(b)||(a=c.bind(a,b)),this._handler.attach("timer",a)},start:function(){var a=this;!function(){a.interval=window.requestAnimationFrame(arguments.callee),a._handler.notifyByKey("timer")}()},stop:function(){window.cancelAnimationFrame(this.interval)}},b});

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="css/shape.css" rel="stylesheet" />
+    <script src="../../lib/sea-debug.js"></script>
+
+</head>
+<body>
+    <div id="circle" class="circle red2black">
+    </div>
+
+    <div id="rect" class="rect green2yellow">
+        Hello
+    </div>
+
+    <input type="button" id="start" class="left_100 green2white" value="开始" />
+    <input type="button" id="stop" class="left_100 top50 green2white" value="暂停" />
+    <input type="button" id="loop" class="left_100 top100 green2white" value="" />
+    <input type="button" id="noloop" class="left_100 top150 green2white" value="" />
+    <input type="button" id="addSpeed" class="left_100 top200 green2white" value="" />
+    <script>
+        seajs.use("./js/shape");
+    </script>
+</body>
+</html>
