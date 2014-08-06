@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="css/main.css" rel="stylesheet" />
+    <script src="js/common/utility.js"></script>
+    <script src="js/common/vector3.js"></script>
+    <script src="js/MVC_Model/ball3D.js"></script>
+    <script src="js/MVC_View/SVG_View.js"></script>
+    <script src="js/MVC_Control/ctrl_ball3D.js"></script>
+    <title>3D透视</title>
+</head>
+<body>
+    <svg version="1.1" height="600px" width="800px" id="svg">
+    </svg>
+
+    <script type="text/javascript">
+        var config = {
+            counter:25
+        }
+
+        var instance = function () {
+            var ctrls = [];
+            for (var i = 0; i < config.counter; i++) {
+                var ball = new ball3D(utils.getRandom(30, 780), utils.getRandom(30, 580), utils.getRandom(0, 60));
+                var view = new svgView("svg");
+                var ctrl = new ball3dCtrl(ball, view);
+
+                ctrls.push(ctrl);
+            }
+
+            return {
+                run: function () {
+                    for (var i = 0, ci; ci = ctrls[i]; i++) {
+                        ci.run();
+                    }
+
+                    ctrls = ctrls.sort(function (x, y) {
+                        if (x.model.position.z > y.model.position.z) {
+                            return -1;
+                        }
+                        else {
+                            return 1;
+                        }
+                    });
+
+                    for (var i = 0, ci; ci = ctrls[i]; i++) {
+                        ci.view.updateDom(0);
+                    }
+
+                    for (var i = 0, ci; ci = ctrls[i]; i++) {
+                        ci.render();
+                    }
+                    
+                    var _args = arguments;
+                    var that = this;
+                    window.requestAnimationFrame(function () {
+                        _args.callee.apply(that);
+                    });
+                }
+            }
+        }();
+
+        instance.run();
+    </script>
+</body>
+</html>

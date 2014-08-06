@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="framework/iCanvas_v2_0_1.js"></script>
+    <script>
+        var _winonload = window.onload;
+
+        window.onload = function () {
+            if (_winonload) {
+                _winonload.apply(this);
+            }
+
+            iCanvas.getCanvasInstance("c1");
+            var bigBack1 = iCanvas.addBanner(380, 460, "yellow");
+            iCanvas.setRootCtrl(bigBack1);
+            var bigBack2 = iCanvas.addBanner(30, 440, "red", bigBack1);
+            bigBack2.setMargin({ top: 5, left: 5 });
+            var bigBack = iCanvas.addBanner(320, 440, "white", bigBack1);
+            bigBack.float = "left";
+            bigBack.setMargin({ top: 5, left: 5 });
+
+            var _btn = iCanvas.addButton(100, 50, "1", "red", bigBack);
+            _btn.setMargin({ top: 5, left: 5 });
+            _btn.float = "left";
+            var _btn2 = iCanvas.addButton(100, 50, "2", "yellow", bigBack);
+            _btn2.setMargin({ top: 5, left: 5 });
+            _btn2.float = "left";
+            var _btn3 = iCanvas.addButton(100, 50, "3", "green", bigBack);
+            _btn3.setMargin({ top: 5, left: 5 });
+            _btn3.float = "left";
+            var _btn4 = iCanvas.addButton(100, 50, "4", "red", bigBack);
+            _btn4.setMargin({ top: 5, left: 5 });
+            _btn4.float = "left";
+            var _btn5 = iCanvas.addButton(100, 50, "5", "yellow", bigBack);
+            _btn5.setMargin({ top: 5, left: 5, left: 5 });
+            _btn5.float = "left";
+            _btn5.setPosition({ absolute: true, left: 80, top: 80 });
+            var _btn6 = iCanvas.addButton(100, 50, "6", "green", bigBack);
+            _btn6.setMargin({ top: 5, left: 5 });
+            _btn6.float = "left";
+            var _btn7 = iCanvas.addButton(100, 50, "7", "blue", bigBack);
+            _btn7.setMargin({ top: 5, left: 5 });
+            _btn7.float = "left";
+            var _btn8 = iCanvas.addButton(100, 50, "8", "red", bigBack);
+            _btn8.setMargin({ top: 5, left: 5 });
+            _btn8.float = "left";
+            iCanvas.render();
+        }
+    </script>
+</head>
+<body>
+     <canvas id="c1" width="711" height="600">canvas not supported</canvas>
+</body>
+</html>

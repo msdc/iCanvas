@@ -1,0 +1,4 @@
+/*@author Mingli Guo (guomilo@gmail.com)
+ * @Date 2014-03-12 
+ */
+define("src/tools/observer",["./util"],function(a){var b,c=a("./util");return b=function(a){this._sender=a,this._listeners={}},b.prototype={attach:function(a,b){c.isUndefined(a)||c.isFunction(b)&&(c.isUndefined(this._listeners[a])&&(this._listeners[a]=[]),this._listeners[a].push(b))},notify:function(){var a=this._listeners,b=Array.prototype.slice.call(arguments);for(var c in a)this.notifyByKey.apply(this,Array.prototype.concat([c],b))},notifyByKey:function(a){if(!c.isUndefined(a)){var b=this._listeners;if(!c.isUndefined(b[a]))for(var d,e=0;d=b[a][e];e++)d.apply(this._sender,Array.prototype.slice.call(arguments,1))}},remove:function(a,b){c.isUndefined(a)||(c.isUndefined(b)?delete this._listeners[a]:this._listeners[a].splice(b,1))},getHandlerByKey:function(a){if(c.isUndefined(a))return void 0;var b=this._listeners;return c.isUndefined(b[a])?void 0:b[a]},clear:function(){this._listeners={}}},b});
